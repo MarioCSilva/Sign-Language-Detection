@@ -209,7 +209,7 @@ The Training Accuracy for the model used with CNN is 100\% while the test accura
 
 \subsection{Data Augmentation}
 
-Sometimes there are more features in the test set than the ones present in the training one, therefore it doesn't have the highest accuracy it could have, one way of trying to increase it is by augmenting the data. This step is very important since it allows to keep high levels of accuracy even when the image to classify is different from the ones from the original dataset. It can be very useful for example in our case, a person can make hand signs with the right or left hand, therefore, we flip some of the images from the training set.
+Sometimes there are more features in the test set than the ones present in the training one, therefore it doesn't have the highest accuracy it could have, one way of trying to increase it is by augmenting the data. This step is very important since it allows to keep high levels of accuracy even when the image to classify is different from the ones from the original dataset. It can be very useful for example in our case, a person can make hand signs with the right or left hand, therefore, we flip some of the images from the training set \cite{towardsdatascience_jachak}.
 
 To augment data in the CNN model, we used TensorFlow's Image Data Generator method that allows us to do random alterations to the images, such as:
 
@@ -266,7 +266,7 @@ Running 100 epochs took a little over an hour to complete, in contrast to the pr
 
 \subsubsection{Batch Normalization}
 
-Batch normalization is a layer that allows every layer of the network to do learning more independently. It is used to normalize the output of the previous layers. The activations scale the input layer in normalization. Using batch normalization learning becomes efficient also it can be used as regularization to avoid overfitting of the model. The layer is added to the sequential model to standardize the input or the outputs.
+Batch normalization is a layer that allows every layer of the network to do learning more independently. It is used to normalize the output of the previous layers. The activations scale the input layer in normalization. Using batch normalization learning becomes efficient also it can be used as regularization to avoid overfitting of the model. The layer is added to the sequential model to standardize the input or the outputs \cite{towardsdatascience_jachak}. 
 
 After running 100 epochs, we realized it took way too much time to get good accuracy, with an average of 35 seconds per epoch it took over an hour as said previously. So, we started looking at other ways of improving the time and found Batch Normalisation.
 
@@ -304,7 +304,7 @@ The Training accuracy after including batch normalization is 100\% and test accu
 
 \subsubsection{Dropout}
 
-During the training phase of the neural network, some nodes in a hidden layer are dropped randomly based on their neuron value. This allows the network to be architecturally different at each run and hence, preventing overfitting. We started with a dropout rate of 0.4 and experimented a bit to find a sweet spot. We got good results at a rate of 0.3.
+During the training phase of the neural network, some nodes in a hidden layer are dropped randomly based on their neuron value. This allows the network to be architecturally different at each run and hence, preventing overfitting \cite{medium_Jachak}. We started with a dropout rate of 0.4 and experimented a bit to find a sweet spot. We got good results at a rate of 0.3.
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=9cm]{img/final_model_drop_50ep.png}}
@@ -341,11 +341,11 @@ This seemed counter intuitive, since usually training accuracy is higher or same
 
 \subsection{Decaying Learning Rate}
 
-Since the validation accuracies weren't fluctuating a lot and the lines were fairly smooth we didn't implement decaying learning rate, however it is worth mentioning. If the learning rate was too high it could cause the model to overshoot the optima and a great way of avoiding that would be the use of a decaying learning rate which drops the learning rate by some value after each epoch.
+Since the validation accuracies weren't fluctuating a lot and the lines were fairly smooth we didn't implement decaying learning rate, however it is worth mentioning. If the learning rate was too high it could cause the model to overshoot the optima and a great way of avoiding that would be the use of a decaying learning rate which drops the learning rate by some value after each epoch \cite{towardsdatascience_jachak}.
 
 \subsection{Batch Size}
 
-Batch size is one of the most important hyperparameters to tune in modern deep learning systems. Practitioners often want to use a larger batch size to train their model as it allows computational speedups from the parallelism of GPUs. However, it is well known that too large of a batch size will lead to poor generalization.
+Batch size is one of the most important hyperparameters to tune in modern deep learning systems. Practitioners often want to use a larger batch size to train their model as it allows computational speedups from the parallelism of GPUs. However, it is well known that too large of a batch size will lead to poor generalization \cite{medium_Shen}.
 
 Using smaller batch sizes have been empirically shown to have faster convergence to “good” solutions. This is intuitively explained by the fact that smaller batch sizes allow the model to “start learning before having to see all the data.” The downside of using a smaller batch size is that the model is not guaranteed to converge to the global optima. 
 
